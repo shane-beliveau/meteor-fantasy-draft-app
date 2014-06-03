@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "iron-router": {},
+    "semantic-ui-less": {},
+    "normalize.css": {},
+    "smart-collections": {}
+  }
+}

@@ -1,0 +1,39 @@
+<template name="login">
+
+<div id="login" class="user">
+
+    <div class="hlp center aligned margin tb2">
+        <img src="/images/dev/x" alt="Duff">
+    </div>
+
+    <form action="/account" method="post" class="ui form raised red attached segment">
+
+        <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" name="username" type="text">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+        </div>
+
+        <div class="hlp center aligned">
+            <div class="ui small buttons">
+                <input id="login" class="ui red button" type="submit" value="Login">
+                <div class="or"></div>
+                <a class="ui button" href="/signup">Create Account</a>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="ui message">
+        {{#if currentUser}}
+            Welcome, {{currentUser.profile.firstname}}
+        {{/if}}
+    </div>
+
+</div>
+
+</template>

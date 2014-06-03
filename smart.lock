@@ -1,0 +1,38 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "iron-router": {},
+      "semantic-ui-less": {},
+      "normalize.css": {},
+      "smart-collections": {}
+    },
+    "packages": {
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "semantic-ui-less": {
+        "git": "https://github.com/nooitaf/meteor-semantic-ui-less.git",
+        "tag": "v0.17.0",
+        "commit": "2e4f726f0385fe4f9887596fc35c4c4207773992"
+      },
+      "normalize.css": {
+        "git": "https://github.com/rithis/meteor-normalize.css",
+        "tag": "v2.0.1",
+        "commit": "671aba13223dd7d7ec1d26a6b2461943d7c4fa18"
+      },
+      "smart-collections": {
+        "git": "https://github.com/arunoda/meteor-smart-collections.git",
+        "tag": "v0.4.0",
+        "commit": "da25a5e88c3b5e3c1cb3bd44fd7fdc3234448526"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      }
+    }
+  }
+}

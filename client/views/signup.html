@@ -1,0 +1,54 @@
+<template name="signup">
+
+<div id="signup" class="user hlp margin tb2">
+    
+    <div class="ui icon header">
+        <i class="circular pencil icon"></i>Sign Up!
+        <div class="sub header hlp margin tb1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, dolorem, nemo incidunt mollitia quasi!
+        </div>
+    </div>
+
+    <form action="/account">
+        <div class="ui form segment">
+            
+            <div class="field">
+                <label>First Name</label>
+                <input placeholder="First Name" name="first-name" type="text">
+            </div>
+
+            <div class="field">
+                <label>Last Name</label>
+                <input placeholder="Last Name" name="last-name" type="text">
+            </div>
+
+            <div class="field">
+                <label>Email Address</label>
+                <input placeholder="Email Address" name="email" type="email">
+            </div>
+
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="Username" name="username" type="text">
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <input placeholder="&bull;&bull;&bull;&bull;&bull;&bull;" name="password" type="password">
+            </div>
+
+            <div id="signup" class="ui red fluid submit button">Submit</div>
+
+            <div class="ui error message"></div>
+
+        </div>
+    </form>
+
+    <a href="/" class="ui mini fluid button hlp margin tb3">
+        <i class="left arrow icon"></i>
+        Go back
+    </a>
+
+</div>
+
+</template>
