@@ -9,7 +9,7 @@ Router.configure({
 Router.map(function() {
 
     this.route('app', {
-        path  : '/',
+        path  : '/:position?',
         waitOn: function() {
             return [
                 Meteor.subscribe('nflplayers'),

@@ -16,30 +16,58 @@
 // ############################################################################
 
 .main.container {
-    padding-top: 87px;
+    padding-top: 124px;
+    .transition(all 0.3s ease);
 }
 
 // ############################################################################
 // FIXED HEADER
 // ############################################################################
 
-#draftboard {
-
-    .title {
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-
+#fixed {
+    position: fixed;
+    z-index: 999;
+    margin: 0;
+    border: none;
+    width: 100%;
 }
 
 // ############################################################################
 // NAVIGATION
 // ############################################################################
 
-nav#navigation {
+#draftboard {
     
-    top: 42px;
-    margin: 0;
-    .border-radius(0);
+    .ui.menu {
+        .border-radius(0);
+    }
+    .title {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
 
+#navigation {
+    
+    .ui.menu {
+        
+        .border-radius(0);
+        margin: 0;
+
+        .active.item:not(sub) {
+            .box-shadow(none)
+        }
+    }
+
+    .ui.sub.menu { 
+
+        a.item {
+            font-weight: bold;
+            .hlp.font.size.minus1;
+            
+            &.active {
+                border-bottom: none;
+            }
+        }
+    }
 }

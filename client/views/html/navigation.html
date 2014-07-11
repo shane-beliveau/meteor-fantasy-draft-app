@@ -1,15 +1,24 @@
 <template name="navigation">
-
-    <nav id="navigation" class="ui fixed borderless transparent fluid two item menu">
-        <a href="#" data-mainview="players" class="item">
-            <i class="user icon"></i>
-            Players
-        </a>
-        <a href="#" data-mainview="results" class="item">
-            <i class="table icon"></i>
-            Results
-        </a>
-    </nav>
-
+    
+    <div id="navigation">
+        <div class="ui inverted blue fluid two item menu">
+            <a href="#" data-mainview="players" class="active item">
+                <i class="user icon"></i>
+                Players
+            </a>
+            <a href="#" data-mainview="results" class="item">
+                <i class="table icon"></i>
+                Results
+            </a>
+        </div>
+        <div class="ui transparent fluid six item sub menu">
+            <a class="item" href="/qb">QB</a>
+            <a class="item" href="/rb">RB</a>
+            <a class="item" href="/wr">WR</a>
+            <a class="item" href="/te">TE</a>
+            <a class="item" href="/k">K</a>
+            <a class="item" href="/def">DEF</a>
+        </div>
+    </div>
 
 </template>

@@ -55,10 +55,10 @@ Meteor.publish('nflbyes', function() {
 // ----------------------------------------------------------------------------
 
 // Load all teams if they haven't been already
-//if( !Draftboard.find().count() )
-//{
+if( !Draftboard.find().count() )
+{
     Draftboard.insert( _Draftboard );
-//}
+}
 
 Meteor.publish('draftboard', function() {
     return Draftboard.find();
@@ -70,12 +70,12 @@ Meteor.publish('draftboard', function() {
 // ----------------------------------------------------------------------------
 
 // Load all teams if they haven't been already
-//if( !Teams.find().count() )
-//{
+if( !Teams.find().count() )
+{
     _.each( _Teams, function( team ) {
         Teams.insert( team );
     });
-//}
+}
 
 Meteor.publish('teams', function() {
     return Teams.find();
