@@ -5,7 +5,8 @@
       "iron-router": {},
       "semantic-ui-less": {},
       "normalize.css": {},
-      "smart-collections": {}
+      "smart-collections": {},
+      "lesshat": {}
     },
     "packages": {
       "iron-router": {
@@ -15,8 +16,8 @@
       },
       "semantic-ui-less": {
         "git": "https://github.com/nooitaf/meteor-semantic-ui-less.git",
-        "tag": "v0.17.0",
-        "commit": "2e4f726f0385fe4f9887596fc35c4c4207773992"
+        "tag": "v0.19.0",
+        "commit": "6fc92abe6754cbc623f475b72e001a4fc77e81b5"
       },
       "normalize.css": {
         "git": "https://github.com/rithis/meteor-normalize.css",
@@ -27,6 +28,11 @@
         "git": "https://github.com/arunoda/meteor-smart-collections.git",
         "tag": "v0.4.0",
         "commit": "da25a5e88c3b5e3c1cb3bd44fd7fdc3234448526"
+      },
+      "lesshat": {
+        "git": "https://github.com/QaDeS/meteor-lesshat",
+        "tag": "v0.0.1",
+        "commit": "61514ff932e1e9615f007c3fdff633a110bf8910"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

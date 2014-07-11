@@ -1,0 +1,11 @@
+<template name="account">
+
+<div class="ui message">
+    {{#if currentUser}}
+        Welcome, {{currentUser.profile.firstname}}
+    {{/if}}
+</div>
+
+<button id="logout" class="ui red button">Logout</button>
+
+</template>

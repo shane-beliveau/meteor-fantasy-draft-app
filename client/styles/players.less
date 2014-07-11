@@ -1,0 +1,49 @@
+@import (reference) "_globals.less";
+
+// Position / Player Lists
+// ------------------------------------
+
+.list {
+    
+    .tab {
+        float: left;
+        padding: 1.5em 0.5em;
+
+        font-weight: bold;
+        color: @white;
+
+        .hlp.aligned.center;
+        .hlp.font.size.minus3;
+    }
+
+    .item {
+        
+        .content {
+            padding: 0.625em 1em 0.5em;
+            .hlp.font.size.minus1;
+
+            span {
+                .hlp.font.size.minus2;
+                color: @gray-light; 
+            }
+        }
+    }
+
+}
+
+.players {
+
+    &.list {
+        &.qb .tab  { background-color: @qb; }
+        &.rb .tab  { background-color: @rb; }
+        &.wr .tab  { background-color: @wr; }
+        &.te .tab  { background-color: @te; }
+        &.def .tab { background-color: @def; }
+        &.k .tab   { background-color: @k; }
+
+        .list .item {
+            padding: 0;
+        }
+    }
+
+}

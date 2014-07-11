@@ -1,9 +1,31 @@
 @import "http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300,300italic,400italic,600italic,700italic,800italic";
 // ------------------------------------------------
 
-
 @font-family-default: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
+@blue-dark      : #004F6E;
+@blue-light     : #399CC4;
+@blue-whisper   : lighten(@blue-light, 20%);
+
+@white          : #FAFAFA;
+@black          : #2B2b2B;
+
+@gray-dark      : darken(@gray-whisper, 40%);
+@gray-light     : darken(@gray-whisper, 20%);
+@gray-whisper   : #E3E5E8;
+
+@red-dark       : #B82A1B;
+@red-light      : lighten(@red-dark, 20%);
+@red-whisper    : lighten(@red-light, 20%);
+
+// Players Colors
+
+@qb : @blue-whisper;
+@rb : #f7931d;
+@wr : #d3ca21;
+@te : #31bf2a;
+@def: @gray-light;
+@k  : @white;
 
 // ------------------------------------------------
 // MIXINS
@@ -80,6 +102,35 @@
     }
 
     // -----------------
+
+    &.background {
+
+        &.dark {
+            
+            &.blue { background-color: @blue-dark; }
+            &.gray { background-color: @gray-dark; }
+            &.red  { background-color: @red-dark; }
+
+        }
+
+        &.light {
+            
+            &.blue { background-color: @blue-light; }
+            &.gray { background-color: @gray-light; }
+            &.red  { background-color: @red-light; }
+
+        }
+
+        &.whisper {
+            
+            &.gray { background-color: @gray-whisper; }
+            &.blue { background-color: @blue-whisper; }
+            &.red  { background-color: @red-whisper; }
+
+        }
+    }
+
+    // -----------------
 }
 
 
@@ -90,4 +141,9 @@
 body {
   font-family: @font-family-default;
   font-size: 1rem !important;
+  color: @black;
+}
+
+.icon {
+    vertical-align: middle;
 }

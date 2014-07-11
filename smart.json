@@ -3,6 +3,7 @@
     "iron-router": {},
     "semantic-ui-less": {},
     "normalize.css": {},
-    "smart-collections": {}
+    "smart-collections": {},
+    "lesshat": {}
   }
 }

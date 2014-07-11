@@ -1,0 +1,25 @@
+<template name="app">
+    
+    <section class="players list {{position}}">
+        
+        <div class="ui divided list">
+            {{#each nflplayers}}
+
+                <div class="item">
+                    <div class="tab">
+                        {{position}}
+                    </div>
+                    <div class="content">
+                        <div class="header">{{ displayName }}</div>
+                        <span>
+                            {{ team }} &bull; {{position}} &bull; Bye: {{ bye }}
+                        </span>
+                    </div>
+                </div>
+
+            {{/each}}
+        </div>
+
+    </section>
+    
+</template>

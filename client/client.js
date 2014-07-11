@@ -1,9 +1,25 @@
+// ############################################################################
+// DOM Manipulation
+// ############################################################################
+
 $(function(){
     
-    // Auto close flash messages
+    // Close on click flash messages
     $(document).on('click', '.ui.message .close', function() {
         
         $(this).closest('.message').fadeOut();
+        
+        // Delete the flash messages so they do not persist
+        delete Session.keys['flash'];
+        
+    });
+
+    // Auto-fade flash messages
+    $(document).on('load', '.ui.message', function() {
+        
+        setTimeout(function(){
+            $(this).fadeOut();
+        },1500);
         
         // Delete the flash messages so they do not persist
         delete Session.keys['flash'];
