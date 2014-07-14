@@ -1,3 +1,9 @@
+NFLPlayers.remove({});
+Top300.remove({});
+NFLByes.remove({});
+Draftboard.remove({});
+Teams.remove({});
+
 // ############################################################################
 // @@ NFL Players
 // {{ players }}
@@ -16,20 +22,20 @@ Meteor.publish('nflplayers', function() {
 });
 
 // ############################################################################
-// @@ NFL Teams
-// {{ teams }}
+// @@ Top 300
+// {{ top300 }}
 // ----------------------------------------------------------------------------
 
-// Load all teams if they haven't been already
-if( !NFLTeams.find().count() )
+// Load top 300 if they haven't been already
+if( !Top300.find().count() )
 {
-    _.each( _NFLTeams, function( team ) {
-        NFLTeams.insert( team );
+    _.each( _Top300, function( player ) {
+        Top300.insert( player );
     });
 }
 
-Meteor.publish('nflteams', function() {
-    return NFLTeams.find();
+Meteor.publish('top300', function() {
+    return Top300.find();
 });
 
 // ############################################################################

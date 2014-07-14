@@ -1,4 +1,5 @@
 @import (reference) "_globals.less";
+@import (reference) "../../packages/lesshat/lesshat.less";
 
 // Position / Player Lists
 // ------------------------------------
@@ -7,18 +8,14 @@
     
     .tab {
         float: left;
-        padding: 1.5em 0.5em;
-        width: 14px;
-
-        font-weight: bold;
-        color: @white;
-
-        .hlp.aligned.center;
-        .hlp.font.size.minus3;
+        width: 16px;
+        height: 48px;
     }
 
     .item {
         
+        cursor: pointer;
+
         .content {
             padding: 0.625em 1em 0.5em;
             .hlp.font.size.minus1;
@@ -26,6 +23,25 @@
             span {
                 .hlp.font.size.minus2;
                 color: @gray-light; 
+            }
+        }
+
+        .info {
+
+            cursor: default;
+
+            &.hide {
+                display: none;
+            }
+            .column {
+                line-height: 3.5em;
+                padding: 0 36px;
+                background: @gray-whisper;
+                .box-shadow(0 8px 8px -8px rgba(20,20,20,0.5) inset);
+
+                &:last-child {
+                    text-align: right;
+                }
             }
         }
     }

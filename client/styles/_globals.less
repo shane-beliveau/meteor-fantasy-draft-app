@@ -12,7 +12,7 @@
 
 @gray-dark      : darken(@gray-whisper, 40%);
 @gray-light     : darken(@gray-whisper, 20%);
-@gray-whisper   : #E3E5E8;
+@gray-whisper   : #FAFAFA;
 
 @red-dark       : #B82A1B;
 @red-light      : lighten(@red-dark, 20%);
@@ -22,7 +22,7 @@
 
 @qb : @blue-whisper;
 @rb : #f7931d;
-@wr : #d3ca21;
+@wr : #edde38;
 @te : #31bf2a;
 @def: @gray-dark;
 @k  : @gray-light;
@@ -98,6 +98,24 @@
             &.minus4    { font-size: .500rem !important; }
             &.minus5    { font-size: .375rem !important; }
 
+        }
+
+        &.color {
+            &.dark {
+                &.blue { color: @blue-dark !important; }
+                &.gray { color: @gray-dark !important; }
+                &.red  { color: @red-dark !important; }
+            }
+            &.light {
+                &.blue { color: @blue-light !important; }
+                &.gray { color: @gray-light !important; }
+                &.red  { color: @red-light !important; }
+            }
+            &.whisper {
+                &.gray { color: @gray-whisper !important; }
+                &.blue { color: @blue-whisper !important; }
+                &.red  { color: @red-whisper !important; }
+            }
         }
     }
 

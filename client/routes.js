@@ -24,9 +24,12 @@ Router.map(function() {
 
             return { 
                 nflplayers : function() { return NFLPlayers.find( 
-                        { position: position.toUpperCase() },
                         { 
-                            limit: 200,
+                            position: position.toUpperCase(),
+                            fantasyPoints: { $gt: 0 }
+                        },
+                        { 
+                            sort: { "fantasyPoints": -1 },
                             transform: function(item) {
                                 item.bye = function() {
                                     for(i in byes) {
