@@ -1,0 +1,40 @@
+@import (reference) "_globals.less";
+@import (reference) "../../packages/lesshat/lesshat.less";
+
+.draftboard, .teams {
+    
+    .ui.table tr td.header {
+        width: 3em !important;
+        .hlp.aligned.center;
+    }
+
+    @media only screen and (max-width : 768px) {
+        .ui.table {
+            display: table;
+            padding: 0em;
+            width: 100% !important;
+        }
+        .ui.table thead {
+            display: table-header-group;
+        }
+        .ui.table tfoot {
+            display: table-footer-group;
+        }
+        .ui.table tbody {
+            display: table-row-group;
+        }
+        .ui.table tr {
+            display: table-row;
+        }
+
+        .ui.table tr td {
+            width: auto !important;
+            display: table-cell;
+            border: none !important;
+            padding: 0.8em 0.5em;
+            -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+            box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05) !important;
+        }
+    }
+
+}

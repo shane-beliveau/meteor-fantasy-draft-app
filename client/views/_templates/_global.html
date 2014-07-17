@@ -18,12 +18,11 @@
     </div>
     {{/if}}
     
-    <div id="fixed">
-        {{>draftboard}}
+    <div id="fixed" class="page">
         {{>navigation}}
     </div>
 
-    <div class="main container">
+    <div class="main container{{#if isPlayerTemplate}} sub menu{{/if}}">
         {{>yield}}
     </div>
 

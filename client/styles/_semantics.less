@@ -1,0 +1,58 @@
+@import (reference) "_globals.less";
+@import (reference) "../../packages/lesshat/lesshat.less";
+
+// ------------------------------------------------
+// CUSTOMIZATIONS TO EXISTING SEMANTIC UI CLASSES
+// ------------------------------------------------
+
+.list {
+    
+    .tab {
+        float: left;
+        width: 16px;
+        height: 48px;
+    }
+
+    .item {
+        
+        cursor: pointer;
+        position: relative;
+
+        .content {
+            padding: .625em 1em .5em;
+            .hlp.font.size.minus1;
+
+            span {
+                .hlp.font.size.minus2;
+                color: @gray-light; 
+            }
+        }
+
+        .info {
+
+            cursor: default;
+
+            &.hide {
+                display: none;
+            }
+            .row {
+                margin-top: 0;
+                padding: 0;
+            }
+            .row:first-child {
+                .box-shadow(0 8px 8px -8px rgba(20,20,20,0.5) inset);
+                padding-top: 6px;
+            }
+            .column {
+                line-height: 3.5em;
+                padding: 0 36px;
+                background: @gray-whisper;
+            }
+        }
+    }
+
+    .list .item {
+        padding: 0;
+    }
+
+}

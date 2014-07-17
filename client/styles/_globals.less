@@ -7,7 +7,7 @@
 @blue-light     : #399CC4;
 @blue-whisper   : lighten(@blue-light, 20%);
 
-@white          : #FAFAFA;
+@white          : #FCFCFC;
 @black          : #2B2b2B;
 
 @gray-dark      : darken(@gray-whisper, 40%);
@@ -91,6 +91,12 @@
     &.font {
 
         &.size {
+            
+            &.plus1     { font-size: 1.125rem !important; }
+            &.plus2     { font-size: 1.250rem !important; }
+            &.plus3     { font-size: 1.375rem !important; }
+            &.plus4     { font-size: 1.500rem !important; }
+            &.plus5     { font-size: 1.625rem !important; }
 
             &.minus1    { font-size: .875rem !important; }
             &.minus2    { font-size: .750rem !important; }
@@ -101,20 +107,14 @@
         }
 
         &.color {
-            &.dark {
-                &.blue { color: @blue-dark !important; }
-                &.gray { color: @gray-dark !important; }
-                &.red  { color: @red-dark !important; }
+            &.white {
+                color: @white !important;
             }
-            &.light {
-                &.blue { color: @blue-light !important; }
-                &.gray { color: @gray-light !important; }
-                &.red  { color: @red-light !important; }
+            &.black {
+                color: @black !important;
             }
             &.whisper {
-                &.gray { color: @gray-whisper !important; }
-                &.blue { color: @blue-whisper !important; }
-                &.red  { color: @red-whisper !important; }
+                color: @gray-light !important;
             }
         }
     }
@@ -151,6 +151,9 @@
     // -----------------
 }
 
+.hide {
+    display: none;
+}
 
 // ------------------------------------------------
 // STANDARD ELEMENTS
@@ -158,7 +161,7 @@
 
 body {
   font-family: @font-family-default;
-  font-size: 1rem !important;
+  font-size: 16px !important;
   color: @black;
 }
 

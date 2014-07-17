@@ -1,5 +1,34 @@
 <template name="navigation">
     
+    <div id="summary">
+        <div class="ui transparent borderless inverted main menu">
+            <div class="content">
+
+                <div class="title item">DUFF 2014</div>
+
+                <div class="right menu">
+                    <div class="title item">
+                        Rd {{ summary.round }}&nbsp;&bull;&nbsp;Pick {{ summary.pick }}&nbsp;&nbsp;
+                        <a href="#" id="reset" class="ui icon tiny button red">
+                            <i class="refresh icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="ui transparent borderless hlp background dark blue inverted main menu">
+            <div class="content">
+
+                <div class="title item">
+                    <i class="time basic icon"></i>
+                    {{ summary.team.name }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div id="navigation">
         <div class="ui inverted blue fluid three item menu">
             <a href="/" data-mainview="players" class="active item">
@@ -15,6 +44,7 @@
                 TEAMS
             </a>
         </div>
+        {{#if isPlayerTemplate }}
         <div class="ui transparent fluid six item sub menu">
             <a class="item" href="/qb">QB</a>
             <a class="item" href="/rb">RB</a>
@@ -23,6 +53,7 @@
             <a class="item" href="/k">K</a>
             <a class="item" href="/def">DEF</a>
         </div>
+        {{/if}}
     </div>
 
 </template>

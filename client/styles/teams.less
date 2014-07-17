@@ -1,0 +1,22 @@
+@import (reference) "_globals.less";
+@import (reference) "../../packages/lesshat/lesshat.less";
+
+.teams {
+
+    &.list {
+        .tab  { background-color: @black; }
+
+        .list .item {
+            padding: 0;
+
+            &:hover {
+                .hlp.background.whisper.gray;
+            }
+
+            .info {
+                .box-shadow(0 -10px 10px -10px rgba(0,0,0,0.5) inset);
+            }
+        }
+    }
+
+}

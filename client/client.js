@@ -14,18 +14,6 @@ $(function(){
         
     });
 
-    // Auto-fade flash messages
-    $(document).on('load', '.ui.message', function() {
-        
-        setTimeout(function(){
-            $(this).fadeOut();
-        },1500);
-        
-        // Delete the flash messages so they do not persist
-        delete Session.keys['flash'];
-        
-    });
-
 });
 
 // ############################################################################
@@ -45,4 +33,26 @@ Handlebars.registerHelper('flash', function() {
     // Return the original flash message to the template
     return flash;
 
+});
+
+// @@ Convert to lowercase
+// {{ toLowercase @string }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('toLowerCase', function(str) {
+    return str.toLowerCase();
+});
+
+// @@ Determines if current route is the player list
+// {{ isPlayerTemplate }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('isPlayerTemplate', function() {
+    if( ! Router.current() ) return;
+    return ! _.contains(['/draftboard','/teams'], Router.current().path );
+});
+
+// @@ Determines if it's the first pick of round
+// {{ isNewRound }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('isNewRound', function() {
+    return this.pick == 1;
 });

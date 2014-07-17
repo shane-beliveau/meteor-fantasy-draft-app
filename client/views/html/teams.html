@@ -1,0 +1,69 @@
+<template name="teams">
+    
+    <section class="teams list">
+        
+        <div class="ui divided list">
+            {{#each teams}}
+                
+                <div class="item">
+                    <div class="content">
+                        <div class="header">{{ name }}</div>
+                        <span>
+                            {{ owner }}
+                        </span>
+                    </div>
+                    <div class="info hide">
+                        <table class="ui basic table">
+                            <tbody>
+                                
+                                <tr>
+                                    <td class="hlp font color white background dark blue" colspan="2">
+                                        <strong>STARTERS</strong>
+                                    </td>
+                                </tr>
+
+                                {{#each starters }}
+                                <tr>
+                                    <td class="header">
+                                        {{ position }}
+                                    </td>
+                                    <td class="hlp font size minus1">
+                                        {{ displayName }} &nbsp; 
+                                        <span class="hlp font color whisper">
+                                            {{ team }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {{/each}}
+
+                                <tr>
+                                    <td class="hlp font color white background dark blue" colspan="2">
+                                        <strong>RESERVES</strong>
+                                    </td>
+                                </tr>
+
+                                {{#each reserves }}
+                                <tr>
+                                    <td class="header">
+                                        {{ position }}
+                                    </td>
+                                    <td class="hlp font size minus1">
+                                        {{ displayName }} &nbsp; 
+                                        <span class="hlp font color whisper">
+                                            {{ team }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            {{/each}}
+        </div>
+
+    </section>
+
+</template>
