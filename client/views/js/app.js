@@ -55,6 +55,16 @@ Template.app.events({
                         team_id     : team._id,
                         player_id   : selected_player._id
                     });
+
+                    $('.pick.alert')
+                        .html('Team '+ team.name +' selected '+ selected_player.displayName)
+                        .animate({
+                            bottom: '0'
+                        })
+                        .delay(4000)
+                        .animate({
+                            bottom: '-64px'
+                        });
                 });
 
             }
