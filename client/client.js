@@ -55,7 +55,7 @@ Handlebars.registerHelper('isPlayerTemplate', function() {
 // ----------------------------------------------------------------------------
 Handlebars.registerHelper('isBigBoardTemplate', function() {
     if( ! Router.current() ) return;
-    return _.contains(['/big-board'], Router.current().path );
+    return _.contains(['/big-board','/big-board-grid'], Router.current().path );
 });
 
 // @@ Determines if current route is the player list
@@ -71,4 +71,11 @@ Handlebars.registerHelper('subActive', function(path) {
 // ----------------------------------------------------------------------------
 Handlebars.registerHelper('isNewRound', function() {
     return this.pick == 1;
+});
+
+// @@ Determines if it's an even-numbered round
+// {{ isEvenRound }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('isEvenRound', function() {
+    return this.round % 2 === 0;
 });

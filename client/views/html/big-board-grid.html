@@ -1,0 +1,36 @@
+<template name="big-board-grid">
+
+    <section class="big-board-grid players list">
+        
+        <div class="ui grid">
+            
+            <div class="row">
+                {{#each teams}}
+                    <div class="one wide column item">
+                        <div class="content header">
+                            <div class="header">{{ name }}</div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+
+            <div class="row">
+            {{#each picks}}
+
+                <div class="one wide column{{#if isEvenRound}} right floated{{/if}} item">
+                    <div class="content {{toLowerCase player.position }}">
+                        <div class="header">{{ player.displayName }}</div>
+                        <span>
+                            {{ player.team }} &bull; {{ player.position }}
+                        </span>
+                    </div>
+                </div>
+
+            {{/each}}
+            </div>
+
+        </div>
+
+    </section>
+
+</template>

@@ -8,6 +8,7 @@
     
     .ui.grid {
         
+        min-width: 1600px;
         margin: 0;
 
         .row .column {
@@ -36,4 +37,57 @@
             margin: 0 !important;
         }
     }
+}
+
+.big-board-grid {
+
+    .ui.grid {
+
+        min-width: 1600px;
+
+        .row {
+            margin: 0;
+            padding: 0;
+        }
+
+        .one.wide.column {
+
+            width: 10%;
+            margin: 0;
+            padding: 0;
+            max-height: 54px;
+            min-width: 135px;
+
+            .content {
+
+                border: 1px solid @gray-whisper;
+
+                &.header {
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 4px solid @black;
+                    text-align: center;
+                }
+
+                &.qb  { background-color: @qb; }
+                &.rb  { background-color: @rb; }
+                &.wr  { background-color: @wr; }
+                &.te  { background-color: @te; }
+                &.def { background-color: @def; }
+                &.k   { background-color: @k; }
+
+            }
+
+            .header {
+                font-size: .875em;
+                font-weight: 600;
+            }
+
+            span {
+                color: @black;
+            }
+        }
+    }
+
 }

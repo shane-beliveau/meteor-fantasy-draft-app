@@ -225,6 +225,48 @@ Router.map(function() {
             }
         }
     });
+
+    this.route('big-board-grid', {
+        path: '/big-board-grid',
+        data: function() {
+
+            var teams   = Teams.find({}, { sort: { 'order' : 1 } }).fetch(),
+                players = NFLPlayers.find().fetch(),
+                picks;
+
+            return {
+                teams: teams,
+                picks: function() {
+
+                    return Picks.find({}, { 
+                            sort: { 'overall' : 1 },
+                            transform: function(item) {
+                                
+                                item.team = function() {
+                                    for(var i in teams) {
+                                        if(teams[i]._id == item.team_id)
+                                            return teams[i];
+                                    }
+                                };
+
+                                item.player = function() {
+                                    for(var i in players) {
+                                        if(players[i]._id == item.player_id)
+                                            return players[i];
+                                    }
+                                };
+
+                                return item;
+                            }
+                        });
+                },
+                alerts : function() {
+                    return Alerts.findOne();
+                },
+                template: 'big-board-grid'
+            }
+        }
+    });
     
     this.route('app', {
         path  : '/:position?',
