@@ -14,36 +14,17 @@ Meteor.methods({
                 NFLPlayers.insert( player );
             });
         }
-
-        Meteor.publish('nflplayers', function() {
-            return NFLPlayers.find();
-        });
+        else 
+        {
+            Meteor.publish('nflplayers', function() {
+                return NFLPlayers.find();
+            });   
+        }
 
         NFLPlayers.allow({
             insert: function() { return true },
-            update: function() { return true }
-        });
-
-        // ############################################################################
-        // @@ Top 300
-        // {{ top300 }}
-        // ----------------------------------------------------------------------------
-
-        // Load top 300 if they haven't been already
-        if( !Top300.find().count() )
-        {
-            _.each( _Top300, function( player ) {
-                Top300.insert( player );
-            });
-        }
-
-        Meteor.publish('top300', function() {
-            return Top300.find();
-        });
-
-        Top300.allow({
-            insert: function() { return true },
-            update: function() { return true }
+            update: function() { return true },
+            remove: function() { return true }
         });
 
         // ############################################################################
@@ -58,10 +39,12 @@ Meteor.methods({
                 NFLByes.insert( bye );
             });
         }
-
-        Meteor.publish('nflbyes', function() {
-            return NFLByes.find();
-        });
+        else 
+        {
+            Meteor.publish('nflbyes', function() {
+                return NFLByes.find();
+            });
+        }
 
         // ############################################################################
         // @@ Teams
@@ -75,10 +58,12 @@ Meteor.methods({
                 Teams.insert( team );
             });
         }
-
-        Meteor.publish('teams', function() {
-            return Teams.find();
-        });
+        else 
+        {
+            Meteor.publish('teams', function() {
+                return Teams.find();
+            });
+        }
 
         Teams.allow({
             insert: function() { return true },
@@ -95,11 +80,12 @@ Meteor.methods({
         {
             Draftboard.insert( _Draftboard );
         }
-
-        Meteor.publish('draftboard', function() {
-            return Draftboard.find();
-        });
-
+        else
+        {
+            Meteor.publish('draftboard', function() {
+                return Draftboard.find();
+            });
+        }
         Draftboard.allow({
             insert: function() { return true },
             update: function() { return true }
@@ -109,7 +95,7 @@ Meteor.methods({
         // @@ Picks Collection
         // {{ picks }}
         // ----------------------------------------------------------------------------
-
+        
         Meteor.publish('picks', function() {
             return Picks.find();
         });
@@ -120,7 +106,22 @@ Meteor.methods({
         });
 
         // ############################################################################
+        // @@ Alerts Collection
+        // {{ alerts }}
+        // ----------------------------------------------------------------------------
+        
+        Meteor.publish('alerts', function() {
+            Alerts.remove({});
+            return Alerts.find();
+        });
 
+        Alerts.allow({
+            insert: function() { return true },
+            update: function() { return true },
+            remove: function() { return true }
+        });
+
+        // ############################################################################
     }
 });
 

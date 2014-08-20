@@ -50,6 +50,22 @@ Handlebars.registerHelper('isPlayerTemplate', function() {
     return ! _.contains(['/draftboard','/teams'], Router.current().path );
 });
 
+// @@ Determines if current route is the big board list
+// {{ isBigBoardTemplate }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('isBigBoardTemplate', function() {
+    if( ! Router.current() ) return;
+    return _.contains(['/big-board'], Router.current().path );
+});
+
+// @@ Determines if current route is the player list
+// {{ subActive }}
+// ----------------------------------------------------------------------------
+Handlebars.registerHelper('subActive', function(path) {
+    if( ! Router.current() ) return;
+    return _.contains([path], Router.current().path ) ? 'active' : '';
+});
+
 // @@ Determines if it's the first pick of round
 // {{ isNewRound }}
 // ----------------------------------------------------------------------------

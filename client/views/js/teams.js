@@ -14,6 +14,9 @@ Template.teams.rendered = function() {
 
         if( $this.not(':animated') )
             $info.slideToggle();
+            $this.siblings().each(function(){
+                $(this).find('.info').slideUp();
+            });
 
     });
 

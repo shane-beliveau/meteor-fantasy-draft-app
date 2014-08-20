@@ -1,9 +1,12 @@
 {
   "packages": {
-    "iron-router": {},
     "semantic-ui-less": {},
     "normalize.css": {},
     "smart-collections": {},
-    "lesshat": {}
+    "lesshat": {},
+    "blaze-layout": {},
+    "iron-router": {
+      "version": "0.8.1"
+    }
   }
 }

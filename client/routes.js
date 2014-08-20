@@ -1,8 +1,46 @@
-
 // Default templates
 Router.configure({
   layoutTemplate: '_global',
   loadingTemplate: '_loading'
+});
+
+Router.onData(function() {
+
+    var alerts = Alerts.find().fetch();
+
+    if( alerts.length > 0 ) {
+
+        $('<div/>', {
+            class : 'ui small info message pick alert',
+            html  : alerts[0].message
+        })
+            .appendTo('body')
+            .not(':animated')
+            .animate({
+                bottom: '0'
+            })
+            .delay(4000)
+            .animate({
+                bottom: '-64px'
+            },{
+                complete: function() {
+                    Meteor.call('clear_alerts');
+                    $(this).remove();
+                }
+            });
+    }
+
+});
+
+Router.waitOn(function() {
+    return [
+        Meteor.subscribe('teams'),
+        Meteor.subscribe('draftboard'),
+        Meteor.subscribe('picks'),
+        Meteor.subscribe('nflplayers'),
+        Meteor.subscribe('nflbyes'),
+        Meteor.subscribe('alerts')
+    ];   
 });
 
 // Routes
@@ -10,13 +48,6 @@ Router.map(function() {
 
     this.route('teams', {
         path: '/teams/:name?',
-        waitOn: function() {
-            return [
-                Meteor.subscribe('teams'),
-                Meteor.subscribe('draftboard'),
-                Meteor.subscribe('picks')
-            ];
-        },
         data: function() {
             return {
                 teams: function() {
@@ -76,6 +107,9 @@ Router.map(function() {
                         }
                     });
                 },
+                alerts : function() {
+                    return Alerts.findOne();
+                },
                 summary : function() { 
                     return Draftboard.findOne({}, {
                         transform: function(item) {
@@ -98,14 +132,6 @@ Router.map(function() {
 
     this.route('draftboard', {
         path: '/draftboard/:round?',
-        waitOn: function() {
-            return [
-                Meteor.subscribe('teams'),
-                Meteor.subscribe('draftboard'),
-                Meteor.subscribe('nflplayers'),
-                Meteor.subscribe('picks')
-            ];
-        },
         data: function() {
 
             var teams   = Teams.find().fetch(),
@@ -145,6 +171,9 @@ Router.map(function() {
                         }
                     });
                 },
+                alerts : function() {
+                    return Alerts.findOne();
+                },
                 template: 'draftboard'
             }
         },
@@ -168,17 +197,37 @@ Router.map(function() {
             }
         }
     });
+
+    this.route('big-board', {
+        path  : '/big-board',
+        data: function() {
+
+            var byes = NFLByes.find().fetch();
+
+            return { 
+                qb:  function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'QB' }, { sort: { "fantasyPoints": -1 } }); },
+                rb:  function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'RB' }, { sort: { "fantasyPoints": -1 } }); },
+                wr:  function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'WR' }, { sort: { "fantasyPoints": -1 } }); },
+                te:  function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'TE' }, { sort: { "fantasyPoints": -1 } }); },
+                k:   function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'K' }, { sort: { "fantasyPoints": -1 } }); },
+                def: function() { return NFLPlayers.find( { fantasyPoints: { $gt: 5 }, position: 'DEF' }, { sort: { "fantasyPoints": -1 } }); },
+                template: 'big-board',
+                alerts : function() {
+                    return Alerts.findOne();
+                }
+            }
+        },
+        action: function () {
+            if(!this.ready()) {
+                this.render('_loading');
+            } else {
+                this.render();
+            }
+        }
+    });
     
     this.route('app', {
         path  : '/:position?',
-        waitOn: function() {
-            return [
-                Meteor.subscribe('nflplayers'),
-                Meteor.subscribe('nflbyes'),
-                Meteor.subscribe('draftboard'),
-                Meteor.subscribe('teams')
-            ];
-        },
         data: function() {
 
             var position = this.params.position || 'qb',
@@ -208,6 +257,9 @@ Router.map(function() {
                 },
                 position: position,
                 template: 'app',
+                alerts : function() {
+                    return Alerts.findOne();
+                },
                 summary : function() { 
                     return Draftboard.findOne({}, {
                         transform: function(item) {

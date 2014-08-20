@@ -17,44 +17,60 @@
                             <tbody>
                                 
                                 <tr>
-                                    <td class="hlp font color white background dark blue" colspan="2">
+                                    <td class="hlp font color white size minus1 background light blue" colspan="2">
                                         <strong>STARTERS</strong>
                                     </td>
                                 </tr>
+                                
+                                {{#if starters }}
+                                    {{#each starters }}
+                                    <tr>
+                                        <td class="header">
+                                            {{ position }}
+                                        </td>
+                                        <td class="hlp font size minus1">
+                                            {{ displayName }} &nbsp; 
+                                            <span class="hlp font color whisper">
+                                                {{ team }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                {{else}}
+                                    <tr>
+                                        <td class="header" colspan="2">
+                                            No players drafted yet.
+                                        </td>
+                                    </tr>
+                                {{/if}}
 
-                                {{#each starters }}
                                 <tr>
-                                    <td class="header">
-                                        {{ position }}
-                                    </td>
-                                    <td class="hlp font size minus1">
-                                        {{ displayName }} &nbsp; 
-                                        <span class="hlp font color whisper">
-                                            {{ team }}
-                                        </span>
-                                    </td>
-                                </tr>
-                                {{/each}}
-
-                                <tr>
-                                    <td class="hlp font color white background dark blue" colspan="2">
+                                    <td class="hlp font color white size minus1 background light blue" colspan="2">
                                         <strong>RESERVES</strong>
                                     </td>
                                 </tr>
-
-                                {{#each reserves }}
-                                <tr>
-                                    <td class="header">
-                                        {{ position }}
-                                    </td>
-                                    <td class="hlp font size minus1">
-                                        {{ displayName }} &nbsp; 
-                                        <span class="hlp font color whisper">
-                                            {{ team }}
-                                        </span>
-                                    </td>
-                                </tr>
-                                {{/each}}
+                                
+                                {{#if reserves }}
+                                    {{#each reserves }}
+                                    <tr>
+                                        <td class="header">
+                                            {{ position }}
+                                        </td>
+                                        <td class="hlp font size minus1">
+                                            {{ displayName }} &nbsp; 
+                                            <span class="hlp font color whisper">
+                                                {{ team }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                {{else}}
+                                    <tr>
+                                        <td class="header" colspan="2">
+                                            No reserves drafted yet.
+                                        </td>
+                                    </tr>
+                                {{/if}}
 
                             </tbody>
                         </table>

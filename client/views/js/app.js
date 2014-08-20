@@ -47,7 +47,9 @@ Template.app.events({
                 // Add the player to the appropriate team and determine the next
                 // team in the draft order. Also insert overall draft information.
                 Meteor.call('find_by_order', {}, function(error, team) {
+                    
                     Teams.update( team._id , { $push : { players: selected_player } });
+                    
                     Picks.insert({
                         overall     : pick.overall,
                         round       : pick.round,
@@ -56,15 +58,10 @@ Template.app.events({
                         player_id   : selected_player._id
                     });
 
-                    $('.pick.alert')
-                        .html('Team '+ team.name +' selected '+ selected_player.displayName)
-                        .animate({
-                            bottom: '0'
-                        })
-                        .delay(4000)
-                        .animate({
-                            bottom: '-64px'
-                        });
+                    Alerts.insert({
+                        message: 'Team '+ team.name +' selected '+ selected_player.displayName
+                    });
+
                 });
 
             }

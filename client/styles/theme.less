@@ -23,6 +23,11 @@
         padding-top: 168px;
     }
 
+    &.big-board,
+    &.sub.menu.big-board {
+        padding-top: 0;
+    }
+
 }
 
 // ############################################################################
@@ -43,9 +48,24 @@
 
 #summary {
     
+    .content {
+        position: relative;
+    }
+
     .ui.menu {
         .border-radius(0);
         margin: 0;
+        max-height: 44px;
+        
+        .right {
+            position: absolute;
+            top: -1px;
+            right: -5px;
+        }
+        
+        &.dark.blue.main.menu .title {
+            width: 100%;
+        }
     }
     .title {
         text-transform: uppercase;
@@ -53,6 +73,7 @@
     }
     .basic.icon {
         font-weight: bold;
+        line-height: .75em;
     }
 }
 

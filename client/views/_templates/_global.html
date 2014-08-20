@@ -1,5 +1,5 @@
 <head>
-  <title>...</title>
+  <title>2014 FBGM FANTASY FOOTBALL DRAFT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
@@ -8,24 +8,15 @@
 </body>
 
 <template name="_global">
-
-    {{#if flash}}
-    <div class="ui small {{flash.type}} message">
-        <i class="close icon"></i>
-        <div class="header">
-            {{flash.message}}
-        </div>
-    </div>
-    {{/if}}
     
+    {{#unless isBigBoardTemplate}}
     <div id="fixed" class="page">
         {{>navigation}}
     </div>
+    {{/unless}}
 
-    <div class="main container{{#if isPlayerTemplate}} sub menu{{/if}}">
+    <div class="main container{{#if isPlayerTemplate}} sub menu{{/if}}{{#if isBigBoardTemplate}} big-board{{/if}}">
         {{>yield}}
     </div>
-
-    <div class="ui small info message pick alert"></div>
 
 </template>

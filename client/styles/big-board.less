@@ -1,0 +1,39 @@
+@import (reference) "_globals.less";
+@import (reference) "../../packages/lesshat/lesshat.less";
+
+// Big Board List
+// ------------------------------------
+
+.big-board {
+    
+    .ui.grid {
+        
+        margin: 0;
+
+        .row .column {
+            padding: 0;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .ui.list {
+        padding: 0;
+        margin: 0;
+        
+        .drafted {
+            .tab, .item { background-color: @red-whisper; }
+            .content span { display: none; }
+
+            .tab { height: auto; }
+        }
+
+        .item,
+        .list {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    }
+}

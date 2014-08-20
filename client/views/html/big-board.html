@@ -1,0 +1,127 @@
+<template name="big-board">
+    
+    <section class="big-board players list">
+        
+        <h4 class="ui inverted black block header">
+            Remaining Players
+        </h4>
+
+        <div class="ui six column grid">
+            <div class="row">
+                    
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each qb}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each rb}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+
+                
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each wr}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each te}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each k}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="ui divided list">
+                        {{#each def}}
+                        <div class="players list {{toLowerCase position}}{{#if drafted}} drafted{{/if}}">
+                            <div class="item">
+                                <div class="tab"></div>
+                                <div class="content">
+                                    <div class="header">{{ displayName }}</div>
+                                    <span>
+                                        {{ team }} &bull; {{position}} 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+</template>
