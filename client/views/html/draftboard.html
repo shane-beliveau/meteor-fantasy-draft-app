@@ -2,43 +2,41 @@
 
     <section class="draftboard">
         
-        {{#if picks}}
-        <table class="ui basic table">
-            <tbody>
-            {{#each picks}}
-                
-                {{#if isNewRound}}
-                <tr>
-                    <td class="hlp font color white background dark blue" colspan="3">
-                        Round {{ round }}
-                    </td>
-                </tr>
-                {{/if}}
-
-                <tr>
-                    <td class="header">
-                        {{ overall }}
-                    </td>
-                    <td class="hlp font size minus2">
-                        {{ team.name }}
-                    </td>
-                    <td class="hlp font size minus1">
-                        {{ player.displayName }}<br/>
-                        <span class="hlp font size minus2 color whisper">
-                            {{ player.position }} &bull; {{ player.team }}
-                        </span>
-                    </td>
-                </tr>
-
-            {{/each}}
-            </tbody>
-        </table>
-        {{else}}
-
-            <div class="ui massive message">
+        {{#if draftNotStarted}}
+            <div class="ui massive message hlp aligned center">
                 Draft hasn't started yet.
             </div>
+        {{else}}
+            <table class="ui basic table">
+                <tbody>
+                {{#each picks}}
+                    
+                    {{#if isNewRound}}
+                    <tr>
+                        <td class="hlp font color black background whisper gray" colspan="3">
+                            <strong>Round {{ round }}</strong>
+                        </td>
+                    </tr>
+                    {{/if}}
 
+                    <tr>
+                        <td class="header">
+                            {{ overall }}
+                        </td>
+                        <td class="hlp font size minus2">
+                            {{ team.name }}
+                        </td>
+                        <td class="hlp font size minus1">
+                            {{ player.displayName }}<br/>
+                            <span class="hlp font size minus2 color whisper">
+                                {{ player.position }} &bull; {{ player.team }}
+                            </span>
+                        </td>
+                    </tr>
+
+                {{/each}}
+                </tbody>
+            </table>
         {{/if}}
 
 

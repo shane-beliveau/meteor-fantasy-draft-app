@@ -27,12 +27,11 @@ Meteor.methods({
             pick      = ((overall - 1) % draft.total_teams) + 1,
             team_pick = ( round % 2 ) ? pick : ( round * draft.total_teams ) - overall + 1;
 
-        /* Adjust picks for trades made in the league
+        // Adjust picks for trades made in the league
         if( round == 5 && team_pick == 9)
         {
             team_pick = 3;
         }
-        */
 
         Draftboard.update( draft._id, 
             { $set : {

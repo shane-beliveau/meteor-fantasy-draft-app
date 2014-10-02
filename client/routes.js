@@ -171,6 +171,10 @@ Router.map(function() {
                         }
                     });
                 },
+                draftNotStarted: function(){
+                    var draft = Draftboard.findOne();
+                    return (typeof draft == 'undefined') ? true : draft.overall == 1;
+                },
                 alerts : function() {
                     return Alerts.findOne();
                 },
